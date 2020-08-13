@@ -39,11 +39,7 @@ process {
                         octopus.action.script.scriptbody {
                             Key = "Octopus.Action.Script.ScriptBody"
                             Value {
-                                Value = "Write-Host 'Hello world, using PowerShell'
-
-#TODO: Experiment with steps of your own :)
-
-Write-Host '[Learn more about the types of steps available in Octopus](https://g.octopushq.com/OnboardingAddStepsLearnMore)'"
+                                Value = "Write-Host 'hello'"
                                 IsSensitive = false
                                 HasValue = true
                             }
@@ -112,11 +108,7 @@ Write-Host '[Learn more about the types of steps available in Octopus](https://g
                         octopus.action.script.scriptbody {
                             Key = "Octopus.Action.Script.ScriptBody"
                             Value {
-                                Value = "Console.WriteLine("Hello world, using C#");
-
-//TODO: Experiment with steps of your own :)
-
-Console.WriteLine("[Learn more about the types of steps available in Octopus](https://g.octopushq.com/OnboardingAddStepsLearnMore)");"
+                                Value = "Console.WriteLine('')"
                                 IsSensitive = false
                                 HasValue = true
                             }

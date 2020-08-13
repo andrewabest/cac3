@@ -2,7 +2,7 @@ process {
     Id = "deploymentprocess-Projects-83"
     OwnerId = "Projects-83"
     IsFrozen = false
-    Version = 1
+    Version = 2
     SpaceId = "Spaces-1"
     Steps {
         say_hello {
@@ -75,16 +75,16 @@ process {
                 }
             }
         }
-        run_a_script {
+        say_goodbye {
             Id = "8e392921-3c15-419a-abf5-c1a9fbd034a8"
-            Name = "Run a Script"
+            Name = "Say goodbye"
             Condition = "Success"
             StartTrigger = "StartAfterPrevious"
             PackageRequirement = "LetOctopusDecide"
             Actions {
-                run_a_script {
+                say_goodbye {
                     Id = "606f8e4f-681e-4551-88ae-ca4cc61ef02d"
-                    Name = "Run a Script"
+                    Name = "Say goodbye"
                     ActionType = "Octopus.Script"
                     WorkerPoolVariable = ""
                     Container {

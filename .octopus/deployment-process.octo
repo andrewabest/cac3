@@ -5,21 +5,22 @@ process {
     Version = 1
     SpaceId = "Spaces-1"
     Steps {
-        hello_world_(using_powershell) {
-            Id = "911dc057-eeef-4c71-813c-d1872f64c1e3"
-            Name = "Hello world (using PowerShell)"
+        say_hello {
+            Id = "0bec59cb-1335-4403-977e-7fe6e1f3a7f9"
+            Name = "Say hello"
             Condition = "Success"
             StartTrigger = "StartAfterPrevious"
             PackageRequirement = "LetOctopusDecide"
             Actions {
-                hello_world_(using_powershell) {
-                    Id = "7054e78e-2821-411b-8409-e9e0196b024f"
-                    Name = "Hello world (using PowerShell)"
+                say_hello {
+                    Id = "8d5e7f2c-513d-4bcc-b1d0-d5dbbbb4ceb5"
+                    Name = "Say hello"
                     ActionType = "Octopus.Script"
+                    WorkerPoolVariable = ""
                     Container {
                     }
                     IsDisabled = false
-                    IsRequired = true
+                    IsRequired = false
                     Environments = []
                     ExcludedEnvironments = []
                     Channels = []
@@ -28,6 +29,14 @@ process {
                     }
                     Condition = "Success"
                     Properties {
+                        octopus.action.runonserver {
+                            Key = "Octopus.Action.RunOnServer"
+                            Value {
+                                Value = "false"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
                         octopus.action.script.scriptsource {
                             Key = "Octopus.Action.Script.ScriptSource"
                             Value {
@@ -36,26 +45,18 @@ process {
                                 HasValue = true
                             }
                         }
-                        octopus.action.script.scriptbody {
-                            Key = "Octopus.Action.Script.ScriptBody"
-                            Value {
-                                Value = "Write-Host 'hello'"
-                                IsSensitive = false
-                                HasValue = true
-                            }
-                        }
                         octopus.action.script.syntax {
                             Key = "Octopus.Action.Script.Syntax"
                             Value {
-                                Value = "PowerShell"
+                                Value = "Bash"
                                 IsSensitive = false
                                 HasValue = true
                             }
                         }
-                        octopus.action.runonserver {
-                            Key = "Octopus.Action.RunOnServer"
+                        octopus.action.script.scriptbody {
+                            Key = "Octopus.Action.Script.ScriptBody"
                             Value {
-                                Value = "true"
+                                Value = "echo 'bonjour'"
                                 IsSensitive = false
                                 HasValue = true
                             }
@@ -64,31 +65,32 @@ process {
                 }
             }
             Properties {
-                octopus.action.runonserver {
-                    Key = "Octopus.Action.RunOnServer"
+                octopus.action.targetroles {
+                    Key = "Octopus.Action.TargetRoles"
                     Value {
-                        Value = "true"
+                        Value = "web"
                         IsSensitive = false
                         HasValue = true
                     }
                 }
             }
         }
-        hello_world_(using_c#) {
-            Id = "ba97fac8-e2af-49ec-9e22-93e3dcb64167"
-            Name = "Hello World (using C#)"
+        run_a_script {
+            Id = "8e392921-3c15-419a-abf5-c1a9fbd034a8"
+            Name = "Run a Script"
             Condition = "Success"
-            StartTrigger = "StartWithPrevious"
+            StartTrigger = "StartAfterPrevious"
             PackageRequirement = "LetOctopusDecide"
             Actions {
-                hello_world_(using_c#) {
-                    Id = "2a9bef72-9d17-44f1-92b7-9baa0599e7ff"
-                    Name = "Hello World (using C#)"
+                run_a_script {
+                    Id = "606f8e4f-681e-4551-88ae-ca4cc61ef02d"
+                    Name = "Run a Script"
                     ActionType = "Octopus.Script"
+                    WorkerPoolVariable = ""
                     Container {
                     }
                     IsDisabled = false
-                    IsRequired = true
+                    IsRequired = false
                     Environments = []
                     ExcludedEnvironments = []
                     Channels = []
@@ -97,6 +99,14 @@ process {
                     }
                     Condition = "Success"
                     Properties {
+                        octopus.action.runonserver {
+                            Key = "Octopus.Action.RunOnServer"
+                            Value {
+                                Value = "false"
+                                IsSensitive = false
+                                HasValue = true
+                            }
+                        }
                         octopus.action.script.scriptsource {
                             Key = "Octopus.Action.Script.ScriptSource"
                             Value {
@@ -105,26 +115,18 @@ process {
                                 HasValue = true
                             }
                         }
-                        octopus.action.script.scriptbody {
-                            Key = "Octopus.Action.Script.ScriptBody"
-                            Value {
-                                Value = "Console.WriteLine('')"
-                                IsSensitive = false
-                                HasValue = true
-                            }
-                        }
                         octopus.action.script.syntax {
                             Key = "Octopus.Action.Script.Syntax"
                             Value {
-                                Value = "CSharp"
+                                Value = "Bash"
                                 IsSensitive = false
                                 HasValue = true
                             }
                         }
-                        octopus.action.runonserver {
-                            Key = "Octopus.Action.RunOnServer"
+                        octopus.action.script.scriptbody {
+                            Key = "Octopus.Action.Script.ScriptBody"
                             Value {
-                                Value = "true"
+                                Value = "echo 'goodbye'"
                                 IsSensitive = false
                                 HasValue = true
                             }
@@ -133,10 +135,10 @@ process {
                 }
             }
             Properties {
-                octopus.action.runonserver {
-                    Key = "Octopus.Action.RunOnServer"
+                octopus.action.targetroles {
+                    Key = "Octopus.Action.TargetRoles"
                     Value {
-                        Value = "true"
+                        Value = "web"
                         IsSensitive = false
                         HasValue = true
                     }
